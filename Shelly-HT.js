@@ -14,9 +14,7 @@ Module.register("Shelly-HT",{
 	start: function() {
 		var self = this;
 
-/*		this.fetchShellyHT();
-		this.updateDom();
-		// Schedule update timer.*/
+		// Schedule update timer.
 		setInterval(function() {
 			self.sendSocketNotification("GetShelly", self.config.ShellyHTApiPath);
 			self.updateDom();
