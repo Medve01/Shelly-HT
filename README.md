@@ -12,6 +12,8 @@ For it to work properly, it's best to have a static IP for your Shelly. Since it
 
 Current status is works for me, I kinda consider it completed. Will add further features as I need them.
 Feel free to enhance :)
+## Screenshot crop
+![shelly-HT screen](https://medve01.github.io/shelly-ht.jpg)
 
 ## Prerequisites
 You need to have a MagicMirror up and running, also a Shelly HT sensor (https://shelly.cloud/shelly-humidity-and-temperature/) with a fixed IP.
