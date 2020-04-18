@@ -28,4 +28,4 @@ git clone https://github.com/Medve01/Shelly-HT.git
 check our the config.sample.js in the module directory. Copy the content to your config.js and change as necessary. You have to change ShellyHTApiPath to your device's IP address.
 
 Restart MagicMirror and enjoy.
-Note: Shelly HT can be asleep for hours. If you don't receive any data, make sure to turn it on manually the first time. On how to do this, check the Shylle HT user manual.
+Note: Shelly HT can be asleep for hours. If you don't receive any data, make sure to turn it on manually the first time. On how to do this, check the Shelly HT user manual.
