@@ -1,8 +1,10 @@
 Module.register("Shelly-HT",{
 	// Default module config.
 	defaults: {
+		//Just a mock API I used for development
 		ShellyHTApiPath: "http://www.mocky.io/v2/5e9999183300003e267b2744"
 	},
+	//After startup, we don't have data and might not have it for a long time, until Shelly HT wakes up.
 	ShellyHTData: {
 		tmp: "--",
 		hum: "--",
@@ -18,6 +20,7 @@ Module.register("Shelly-HT",{
 		setInterval(function() {
 			self.sendSocketNotification("GetShelly", self.config.ShellyHTApiPath);
 			self.updateDom();
+			//TODO: make the refresh interval configurable. Every 3 secs seems like an overkill
 		}, 3000);
 
 	},
@@ -30,6 +33,7 @@ Module.register("Shelly-HT",{
 	// Override dom generator.
 	getDom: function() {
 		var wrapper = document.createElement("div");
+		// I know, this is ugly. I'm not a FE developer and it works. TODO: prettify in css :)
 		ihtml = this.ShellyHTData.tmp + " ℃<br/>" + this.ShellyHTData.hum + " %";
 		ihtml += "<div class='Shelly-updated'>last updated: " + this.ShellyHTData.updated + "</div>"
 		wrapper.innerHTML = ihtml
