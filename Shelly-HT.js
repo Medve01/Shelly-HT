@@ -10,7 +10,7 @@ Module.register("Shelly-HT",{
 	ShellyHTData: {
 		tmp: "--",
 		hum: "--",
-		updated: "--"
+		bat: "--"
 	},
 	getStyles: function () {
 		return ["Shelly-HT.css", "font-awesome.css"];
@@ -28,20 +28,22 @@ Module.register("Shelly-HT",{
 	},
 	socketNotificationReceived: function (notification, payload) {
 		if (notification = "ShellyHTData"){
-			Log.log(this.name + " received a socket notification: " + notification + " - Temp: " + payload.tmp + " Hum: " + payload.hum + "Updated: " + payload.updated);
-			this.ShellyHTData.tmp = payload.tmp
-			this.ShellyHTData.hum = payload.hum
-			this.ShellyHTData.updated = payload.updated
+		//Log.log(this.name + " received a socket notification: " + notification + " - Temp: " + payload.tmp + " Hum: " + payload.hum + "Updated: " + payload.updated);
+		this.ShellyHTData.tmp = payload.tmp
+		this.ShellyHTData.hum = payload.hum
+		this.ShellyHTData.bat = payload.bat
 		}
 	},
 	// Override dom generator.
 	getDom: function() {
 		var wrapper = document.createElement("div");
-		// I know, this is ugly. I'm not a FE developer and it works. TODO: prettify in css :)
-		ihtml = this.ShellyHTData.tmp + " ℃<br/>" + this.ShellyHTData.hum + " %";
+		ihtml =  "<div class='container'>"
+		ihtml += "  <div class='left'>" + this.ShellyHTData.tmp + " ℃</div>"
+		ihtml += "  <div class='right'>" + this.ShellyHTData.hum + " %</div>"
 		if (this.config.displayUpdated){
-			ihtml += "<div class='Shelly-updated'>last updated: " + this.ShellyHTData.updated + "</div>"
+			ihtml += "  <p class='bottom Shelly-battery'>Battery: " + this.ShellyHTData.bat + "</p>"
 		}
+		ihtml += "</div>"
 		wrapper.innerHTML = ihtml
 		return wrapper
 		}

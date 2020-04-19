@@ -1,3 +1,26 @@
-﻿.Shelly-HT .Shelly-updated {
-    font-size: 20%;
+﻿.Shelly-HT div.container {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
 }
+
+
+.Shelly-HT p.Shelly-battery {
+    margin: 0px;
+    padding: 0px;
+    font-size: 40%;
+    line-height: 100%;
+    float:right;
+    width:100%;
+}
+
+.Shelly-HT div.left {
+    float: left;
+    width: 40%;
+}
+
+.Shelly-HT div.right {
+    float: right;
+    width: 40%;
+}
+
