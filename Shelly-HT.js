@@ -2,7 +2,8 @@ Module.register("Shelly-HT",{
 	// Default module config.
 	defaults: {
 		//Just a mock API I used for development
-		ShellyHTApiPath: "http://www.mocky.io/v2/5e9999183300003e267b2744"
+		ShellyHTApiPath: "http://www.mocky.io/v2/5e9999183300003e267b2744",
+		RefreshInterval: 3000
 	},
 	//After startup, we don't have data and might not have it for a long time, until Shelly HT wakes up.
 	ShellyHTData: {
@@ -21,7 +22,7 @@ Module.register("Shelly-HT",{
 			self.sendSocketNotification("GetShelly", self.config.ShellyHTApiPath);
 			self.updateDom();
 			//TODO: make the refresh interval configurable. Every 3 secs seems like an overkill
-		}, 3000);
+		}, this.config.RefreshInterval);
 
 	},
 	socketNotificationReceived: function (notification, payload) {
