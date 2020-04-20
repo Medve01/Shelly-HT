@@ -26,10 +26,12 @@ Module.register("Shelly-HT",{
 
 	},
 	socketNotificationReceived: function (notification, payload) {
-		Log.log(this.name + " received a socket notification: " + notification + " - Temp: " + payload.tmp + " Hum: " + payload.hum + "Updated: " + payload.updated);
-		this.ShellyHTData.tmp = payload.tmp
-		this.ShellyHTData.hum = payload.hum
-		this.ShellyHTData.updated = payload.updated
+		if (notification = "ShellyHTData"){
+			Log.log(this.name + " received a socket notification: " + notification + " - Temp: " + payload.tmp + " Hum: " + payload.hum + "Updated: " + payload.updated);
+			this.ShellyHTData.tmp = payload.tmp
+			this.ShellyHTData.hum = payload.hum
+			this.ShellyHTData.updated = payload.updated
+		}
 	},
 	// Override dom generator.
 	getDom: function() {
