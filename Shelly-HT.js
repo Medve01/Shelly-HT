@@ -39,7 +39,7 @@ Module.register("Shelly-HT",{
 		var wrapper = document.createElement("div");
 		// I know, this is ugly. I'm not a FE developer and it works. TODO: prettify in css :)
 		ihtml = this.ShellyHTData.tmp + " ℃<br/>" + this.ShellyHTData.hum + " %";
-		if (displayUpdated){
+		if (this.config.displayUpdated){
 			ihtml += "<div class='Shelly-updated'>last updated: " + this.ShellyHTData.updated + "</div>"
 		}
 		wrapper.innerHTML = ihtml
