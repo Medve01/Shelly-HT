@@ -14,10 +14,13 @@ module.exports = NodeHelper.create({
 			request(payload, {json: true }, (err, res, body) => {
 				if (err) { return console.log(err); }
 				currentdate = new Date();
+				var options = { month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+				var printed_date = new Intl.DateTimeFormat('nl', options).format(currentdate);
 				payload= {
 					tmp: body.tmp.tC,
 					hum: body.hum.value,
-					bat: body.bat.value + "%(" + body.bat.voltage + ")"
+					bat: body.bat.value + "%(" + body.bat.voltage + " V)",
+					updated: printed_date
 				}
 				console.log("Sending Shelly data to FE module", payload);
 				//Only sending back temperature in Celsius and Humidity %.
