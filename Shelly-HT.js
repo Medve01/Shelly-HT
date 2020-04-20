@@ -3,7 +3,8 @@ Module.register("Shelly-HT",{
 	defaults: {
 		//Just a mock API I used for development
 		ShellyHTApiPath: "http://www.mocky.io/v2/5e9999183300003e267b2744",
-		RefreshInterval: 3000
+		RefreshInterval: 3000,
+		displayUpdated: true
 	},
 	//After startup, we don't have data and might not have it for a long time, until Shelly HT wakes up.
 	ShellyHTData: {
@@ -38,7 +39,9 @@ Module.register("Shelly-HT",{
 		var wrapper = document.createElement("div");
 		// I know, this is ugly. I'm not a FE developer and it works. TODO: prettify in css :)
 		ihtml = this.ShellyHTData.tmp + " ℃<br/>" + this.ShellyHTData.hum + " %";
-		ihtml += "<div class='Shelly-updated'>last updated: " + this.ShellyHTData.updated + "</div>"
+		if (displayUpdated){
+			ihtml += "<div class='Shelly-updated'>last updated: " + this.ShellyHTData.updated + "</div>"
+		}
 		wrapper.innerHTML = ihtml
 		return wrapper
 		}
