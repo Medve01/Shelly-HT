@@ -5,7 +5,7 @@ Module.register("Shelly-HT",{
 		ShellyHTApiPath: "http://www.mocky.io/v2/5e9999183300003e267b2744",
 		RefreshInterval: 3000,
 		displayUpdated: true,
-		horizontalVoew: true
+		horizontalView: true
 	},
 	//After startup, we don't have data and might not have it for a long time, until Shelly HT wakes up.
 	ShellyHTData: {
@@ -53,7 +53,7 @@ Module.register("Shelly-HT",{
 			ihtml += "  <div class='newline'><sup>" + tmp + "</sup>" + this.ShellyHTData.tmp + " ℃</div>"
 		}
 		if (this.config.displayUpdated){
-			ihtml += "  <p class='bottom'>" + bat + " " +  updated + "</p>"	
+			ihtml += "  <p class='bottom'>" + bat + " " +  updated + "</p>"
 		}
 		ihtml += "</div>"
 		wrapper.innerHTML = ihtml
