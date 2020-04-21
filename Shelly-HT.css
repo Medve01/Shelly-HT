@@ -1,3 +1,31 @@
-﻿.Shelly-HT .Shelly-updated {
-    font-size: 20%;
+﻿.Shelly-HT div.container {
+    margin: 0px;
+    padding: 0px;
 }
+
+
+.Shelly-HT p.bottom {
+    margin: 0px;
+    padding: 0px;
+    font-size: 40%;
+    line-height: 100%;
+    float: right;
+    clear:right;
+}
+
+.Shelly-HT div.right {
+    float: right;
+    padding-left:10px;
+}
+
+.Shelly-HT div.newline {
+    padding-left:10px;
+    clear: right;
+}
+
+.Shelly-HT div sup {
+    vertical-align: super;
+    font-size: 40%;
+    padding-right: 10px;
+}
+
