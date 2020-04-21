@@ -4,11 +4,8 @@ Module.register("Shelly-HT",{
 		//Just a mock API I used for development
 		ShellyHTApiPath: "http://www.mocky.io/v2/5e9999183300003e267b2744",
 		RefreshInterval: 3000,
-<<<<<<< HEAD
-		displayUpdated: true
-=======
-		View: 'horizontal'
->>>>>>> Added Translations and a switch between horizontal and vertical view
+		displayUpdated: true,
+		horizontalVoew: true
 	},
 	//After startup, we don't have data and might not have it for a long time, until Shelly HT wakes up.
 	ShellyHTData: {
@@ -48,7 +45,7 @@ Module.register("Shelly-HT",{
 		var bat = this.translate("BATTERY", {"bat": this.ShellyHTData.bat})
 		var updated = this.translate("UPDATED", {"upd": this.ShellyHTData.updated})
 		ihtml =  "<div class='container'>"
-		if (this.config.View == 'horizontal') {
+		if (this.config.horizontalView) {
 			ihtml += "  <div class='right'><sup>" + hum + "</sup> " + this.ShellyHTData.hum + " %</div>"
 			ihtml += "  <div class='right'><sup>" + tmp + "</sup> " + this.ShellyHTData.tmp + " ℃</div>"
 		} else {
